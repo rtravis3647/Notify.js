@@ -529,12 +529,12 @@
 	$[pluginName] = function(elem, data, options) {
 		if ((elem && elem.nodeName) || elem.jquery) {
 			$(elem)[pluginName](data, options);
+			return elem;
 		} else {
 			options = data;
 			data = elem;
-			new Notification(null, data, options);
+			return new Notification(null, data, options);
 		}
-		return elem;
 	};
 
 	$.fn[pluginName] = function(data, options) {
